@@ -1,3 +1,3 @@
-value = input("Please enter your text: ")
+value = input("Please enter your text: ").lower()
 
-print(value.lower())
+print(value)
