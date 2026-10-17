@@ -19,16 +19,18 @@ def is_valid(s):
         if s[i] in string.punctuation or s[i].isspace():
             return False
 
-    for i in range(2,len(s)-1):
-        if s[i].isdigit() and s[i+1].isalpha():
-            return False
-
     for i in range(2,len(s)):
             if s[i].isdigit():
                 if s[i] == "0":
                     return False
-                break
-
+                break    # Added 'break' so it ONLY checks the absolute first digit
+    
+    for i in range(2,len(s)):
+        if s[i].isdigit():
+            for j in range(i+1, len(s)):
+                if s[j].isalpha():
+                    return False
+    
     return True
 
 main()
