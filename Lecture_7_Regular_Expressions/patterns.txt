@@ -1,0 +1,79 @@
+re.search(pattern, string, flags=0)
+re.match(pattern, string, flags=0)
+re.fullmatch(pattern, string, flags=0)
+re.sub(pattern, repl, string, count=0, flags=0)
+
+
+Parameters
+
+• pattern (str or Pattern): The regular expression pattern you want to search for.
+• repl: string that we can replace the pattern with
+• string (str): The actual text string you want to search within.
+• flags (int, optional): Optional modifiers that change how the regex engine behaves. You can combine multiple flags using the bitwise OR operator (|).
+
+Common Optional Flags
+
+• re.IGNORECASE (or re.I): Makes the matching case-insensitive.
+• re.MULTILINE (or re.M): Affects how anchors like ^ and $ work, though it doesn't change re.match's rule of strictly checking the absolute beginning of the string (\A).
+• re.DOTALL (or re.S): Makes the dot . special character match any character at all, including a newline.
+
+#    . any character except a new line
+#    * 0 or more repetitions
+#    + 1 or more repetitions
+#    ? 0 or 1 repetition
+#    {m} m repetitions
+#    {m,n} m-n repetitions
+#    ^ matches the start of the string
+#    $ matches the end of the string or just before the newline at the end of
+#    [] set of characters
+#    [^] complementing the set
+#    [a-zA-Z0-9_] tells the validation that characters must be between a and z, between A and Z, between 0 and 9 and potentially include an _ symbol
+#    \d decimal digit
+#    \D not a decimal digit
+#    \s whitespace characters
+#    \S not a whitespace character
+#    \w word character, as well as numbers and the underscore
+#    \W not a word character
+#    A|B either A or B
+#    (...) a group
+#    (?:...) non-capturing version
+#    := The walrus operator assigns a value from right to left and allows us to ask a boolean question at the same time
+
+Within the re.search function, there is a parameter for flags. Some built-in flag variables are
+#    re.IGNORECASE
+#    re.MULTILINE
+#    re.DOTALL
+
+
+
+Uses of Regexes
+Beyond user input handling (validating, formatting, cleaning, and extracting user input), regular expressions are 
+foundational to lower-level software engineering, automation, and system architecture. Because regex engines are 
+highly optimized for pattern recognition, they are heavily used for heavy-duty text parsing, automation, and 
+structural code analysis.
+Here are the primary advanced use cases for regexes:
+
+1. Lexical Analysis and Tokenization (Compiler Design)
+In compilers and interpreters, lexical analyzers (lexers) use regex to split raw source code into meaningful tokens 
+(like keywords, operators, and identifiers).
+
+2. Router Engine URL Matching (Web Frameworks)
+Modern web frameworks (like Django, Flask, or Express.js) use regex under the hood to map URL paths to specific 
+backend controller functions.
+
+
+3. Log Analysis, Intrusion Detection, and SIEM
+Security tools and system administrators use regex to scan massive volumes of server log files in real time to look 
+for anomalies, brute-force attempts, or system errors.
+
+
+4. Text Editor Syntax Highlighting
+Code editors (such as VS Code or Vim) rely heavily on regex engines to parse code documents on the fly and colorize 
+text according to the programming language rules.
+
+
+5. Web Scraping & Document Structure Analysis
+When extracting semantic information from large documents or HTML structures where the layout changes slightly, 
+regex handles structural sniffing.
+
+
