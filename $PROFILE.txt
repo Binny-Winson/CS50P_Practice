@@ -1,0 +1,22 @@
+powershell
+function prompt {
+    # 1. Get the current location
+    $currentPath = $ExecutionContext.SessionState.Path.CurrentLocation.Path
+    
+    # 2. Split the Drive (e.g., "D:") from the rest of the path
+    $drive = [System.IO.Path]::GetPathRoot($currentPath)
+    $folder = $currentPath.Substring($drive.Length)
+
+    # 3. Define ANSI Color Codes (Change these numbers to change colors)
+    $driveColor = "`e[93m"   # Bright Yellow
+    $folderColor = "`e[96m"  # Bright Cyan
+    $arrowColor = "`e[97m"   # Bright White
+    $textColor = "`e[92m"    # Bright Green (For the script you type)
+    $reset = "`e[0m"
+
+    # 4. Build and output the prompt
+    Write-Host "$driveColor$drive$folderColor$folder$arrowColor> $textColor" -NoNewline
+    
+    # Return a space so your cursor sits nicely
+    return " "
+}
